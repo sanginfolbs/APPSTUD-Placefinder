@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PlaceFinder</string>
+    <string name="bottom_map_string">Map</string>
+    <string name="bottom_list_string">List</string>
+</resources>
