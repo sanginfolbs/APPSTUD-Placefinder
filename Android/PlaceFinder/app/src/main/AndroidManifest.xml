@@ -42,7 +42,7 @@
             android:value="@integer/google_play_services_version"/>
         <meta-data
             android:name="com.google.android.places.API_KEY"
-            android:value="AIzaSyB0p05tLxi7IRZj33nYXLq78nFgiuZSr1w"/>
+            android:value="AIzaSyDHwcR9QvmdFPdKItL5q0oFMo-Wn7ilmrg"/>
     </application>
 
 

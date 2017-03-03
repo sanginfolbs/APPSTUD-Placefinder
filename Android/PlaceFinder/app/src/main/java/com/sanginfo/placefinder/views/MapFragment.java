@@ -29,7 +29,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.sanginfo.placefinder.R;
-import com.sanginfo.placefinder.controllers.CommonMethods;
+import com.sanginfo.placefinder.utils.CommonMethods;
 import com.sanginfo.placesapi.Place;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -46,6 +46,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
     private static final String TAG = "MapFragment";
     private GoogleMap map;
     private ImageView userCentreImage;
+    private Marker userPositionMarker;
+    ArrayList<Marker> markerList = new ArrayList<>();
+    Handler mHandler = new Handler();
 
     @Nullable
     @Override
@@ -98,9 +101,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
 
     }
 
-    private Marker userPositionMarker;
-
-    public void showUserLocation(final LatLng latlng) {
+    /**
+     * Renders user location marker at the given latlng
+     * @param latlng
+     */
+    public void renderUserLocation(final LatLng latlng) {
         try {
             if (userPositionMarker == null) {
                 userPositionMarker = map.addMarker(new MarkerOptions().position(latlng).flat(true).icon(BitmapDescriptorFactory.fromResource(R.drawable.point_circle)).anchor(0.5f, 0.5f));
@@ -119,8 +124,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         }
     }
 
-    ArrayList<Marker> markerList = new ArrayList<>();
-
+    /**
+     * Adds place markers to the map from the given list
+     * @param places
+     */
     public void populatePlaces(final List<Place> places) {
         try {
 
@@ -140,8 +147,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         }
     }
 
-    Handler mHandler = new Handler();
-
+    /**
+     * Adds a single marker denoting a place on map
+     * @param iconUrl
+     * @param inflater
+     * @param latlng
+     */
     private void addPlace(final Uri iconUrl, final LayoutInflater inflater, final LatLng latlng) {
         try {
             final View placesView;
@@ -179,6 +190,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         }
     }
 
+    /**
+     * Removes all markers from the map
+     */
     public void removeMarkers() {
         try {
             getActivity().runOnUiThread(new Runnable() {
@@ -197,6 +211,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         }
     }
 
+    /**
+     * Creates a bitmap object from a view. Used to add a circular marker on the map.
+     * @param context
+     * @param view
+     * @return
+     */
     public Bitmap createDrawableFromView(Context context, View view) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -222,6 +242,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
 
     }
 
+    /**
+     * Calculates the zoom level to fit all the rendered markers on the screen
+     * @param screenWidth
+     * @return
+     */
     private int calculateZoomLevel(int screenWidth) {
         double equatorLength = 40075004; // in meters
         double widthInPixels = screenWidth;
@@ -234,10 +259,17 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         return zoomLevel;
     }
 
+    /**
+     * Gets the screen width in pixels
+     * @return
+     */
     private int getScreenWidth() {
         return Resources.getSystem().getDisplayMetrics().widthPixels;
     }
 
+    /**
+     * Pans the map to the user position
+     */
     private void centreUserLocation() {
         try {
             if (userPositionMarker != null) {
