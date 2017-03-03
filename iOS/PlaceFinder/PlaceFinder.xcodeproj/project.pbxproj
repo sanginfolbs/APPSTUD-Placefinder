@@ -15,6 +15,7 @@
 		8E0060631E693E0B00642DF0 /* PlaceFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0060621E693E0B00642DF0 /* PlaceFinderUITests.swift */; };
 		8E0060711E69444700642DF0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0060701E69444700642DF0 /* MapViewController.swift */; };
 		8E0060731E69447800642DF0 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0060721E69447800642DF0 /* PlaceViewController.swift */; };
+		8E0060761E6959A800642DF0 /* PlaceFinderLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0060751E6959A800642DF0 /* PlaceFinderLocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		8E0060641E693E0B00642DF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E0060701E69444700642DF0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8E0060721E69447800642DF0 /* PlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		8E0060751E6959A800642DF0 /* PlaceFinderLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceFinderLocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		8E00603F1E693E0A00642DF0 /* PlaceFinder */ = {
 			isa = PBXGroup;
 			children = (
+				8E0060741E69597E00642DF0 /* Finder */,
 				8E0060401E693E0A00642DF0 /* AppDelegate.swift */,
 				8E0060461E693E0A00642DF0 /* Main.storyboard */,
 				8E0060491E693E0A00642DF0 /* Assets.xcassets */,
@@ -126,6 +129,14 @@
 				8E0060641E693E0B00642DF0 /* Info.plist */,
 			);
 			path = PlaceFinderUITests;
+			sourceTree = "<group>";
+		};
+		8E0060741E69597E00642DF0 /* Finder */ = {
+			isa = PBXGroup;
+			children = (
+				8E0060751E6959A800642DF0 /* PlaceFinderLocationService.swift */,
+			);
+			path = Finder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E0060761E6959A800642DF0 /* PlaceFinderLocationService.swift in Sources */,
 				8E0060411E693E0A00642DF0 /* AppDelegate.swift in Sources */,
 				8E0060731E69447800642DF0 /* PlaceViewController.swift in Sources */,
 				8E0060711E69444700642DF0 /* MapViewController.swift in Sources */,

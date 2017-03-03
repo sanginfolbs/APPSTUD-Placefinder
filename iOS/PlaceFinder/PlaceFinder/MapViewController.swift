@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MapViewController: UIViewController {
-
+class MapViewController: UIViewController,PlaceFinderLocationDelegate{
+  var userLocationService: PlaceFinderLocationService?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      userLocationService = PlaceFinderLocationService()
+      userLocationService?.delegate=self
+      
         // Do any additional setup after loading the view.
     }
 
@@ -23,7 +26,6 @@ class MapViewController: UIViewController {
     
 
     /*
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,5 +33,11 @@ class MapViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+  // MARK: - Navigation
+  func placeFinderLocation(_ placeFinderLocationService: PlaceFinderLocationService, location: CLLocationCoordinate2D) {
+    let long = location.longitude;
+    let lat = location.latitude;
+    print(long, lat)
+  }
 
 }
