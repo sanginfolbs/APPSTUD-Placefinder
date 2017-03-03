@@ -52,7 +52,7 @@ class PlaceFinderLocationService: NSObject, CLLocationManagerDelegate {
   }
   
   func myLocation() -> CLLocationCoordinate2D {
-    return kCLLocationCoordinate2DInvalid
+    return lastLocation!
   }
   
   func startService() -> Void {
