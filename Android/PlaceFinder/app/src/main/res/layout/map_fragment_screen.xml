@@ -3,22 +3,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <!--
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    -->
+
     <com.google.android.gms.maps.MapView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/map"
         >
-
     </com.google.android.gms.maps.MapView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Map View"/>
+    <ImageView
+        android:id="@+id/user_centre_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_device_gps_fixed_blue"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"/>
+
 </RelativeLayout>
